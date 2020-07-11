@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import Stock from './Stock';
+import ProductInfo from './ProductInfo'
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
@@ -17,6 +18,13 @@ ReactDOM.render(
     <Stock />
   </React.StrictMode>,
   document.getElementById('stock')
+);
+
+ReactDOM.render(
+  <React.StrictMode>
+    <ProductInfo />
+  </React.StrictMode>,
+  document.getElementById('product-info')
 );
 
 // If you want your app to work offline and load faster, you can change

@@ -23,10 +23,10 @@ class Stock extends React.Component {
             }
             const data = await response.json();
             this.setState({ stock: data , loadingData: false });
-          } catch (error) {
+        } catch (error) {
             console.log(error);
             this.setState({ errorFetching: true })
-          }
+        }
     }
 
     render(){
