@@ -5,7 +5,7 @@ import './App.css';
 class App extends React.Component{
   render(){
       return (
-        <div className="App">
+        <div>
           <header className="App-header">
             <img src={logo} alt="logo" />
             <a

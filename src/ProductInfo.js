@@ -6,7 +6,7 @@ class ProductInfo extends React.Component{
         this.state = {
             loadingData: true,
             productInfo: [],
-            errorFetching: false
+            errorFetching: false,
         };
     }
 

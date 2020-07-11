@@ -1,4 +1,5 @@
 import React from 'react';
+import './Stock.css';
 
 class Stock extends React.Component {
     constructor(props){
@@ -44,8 +45,8 @@ class Stock extends React.Component {
             }
             else {
                 return (
-                    <div>
-                        <h1>Store stock info</h1>
+                    <div className="StockContainer">
+                        <h1 className="StockTitle">Store stock info</h1>
                             <ul>
                                 {stock.map(p => (
                                     <li key={p.product_code}>
