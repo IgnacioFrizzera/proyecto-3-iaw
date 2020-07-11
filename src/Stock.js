@@ -5,7 +5,8 @@ class Stock extends React.Component {
         super(props);
         this.state = {
             loadingData: true,
-            stock: []
+            stock: [],
+            errorFetching: false,
         };
     }
 
@@ -14,38 +15,53 @@ class Stock extends React.Component {
      * After the response is done, renders the data
      */
     async componentDidMount() {
-        const url = "https://mygenericshop.herokuapp.com/api/stock";
-        const response = await fetch(url);
-        const data = await response.json();
-        this.setState({ stock: data , loadingData: false });
-
-        // TODO: add error handling from fetch
+        try {
+            const url = "https://mygenericshop.herokuapp.com/api/stock";
+            const response = await fetch(url);
+            if (!response.ok) {
+              throw Error(response.statusText);
+            }
+            const data = await response.json();
+            this.setState({ stock: data , loadingData: false });
+          } catch (error) {
+            console.log(error);
+            this.setState({ errorFetching: true })
+          }
     }
 
     render(){
-        const { loadingData, stock} = this.state;
-        if(loadingData || stock.length === 0) {
-            return <div> Loading store stock...</div>;
+        const { loadingData, stock, errorFetching } = this.state;
+        if(errorFetching) {
+            return (
+                <div>Failed to retrieve data. Try again later!</div>
+            );
         }
         else {
-            return (
-                <div>
-                    <h1>Store stock info</h1>
-                        <ul>
-                            {stock.map(product => (
-                                <li key={product.product_code}>
-                                    Product code: {product.product_code}
-                                    <ul>
-                                        <li>S size stock: {product.s_stock}</li>
-                                        <li>M size stock: {product.m_stock}</li>
-                                        <li>L size stock: {product.l_stock}</li>
-                                        <li>XL size stock: {product.xl_stock}</li>
-                                    </ul>
-                                </li>
-                            ))}    
-                        </ul>
-                </div>
-            );
+            if(loadingData || stock.length === 0) {
+                return (
+                    <div> Loading store stock...</div>
+                );
+            }
+            else {
+                return (
+                    <div>
+                        <h1>Store stock info</h1>
+                            <ul>
+                                {stock.map(p => (
+                                    <li key={p.product_code}>
+                                        Product code: {p.product_code}
+                                        <ul>
+                                            <li>S size stock: {p.s_stock}</li>
+                                            <li>M size stock: {p.m_stock}</li>
+                                            <li>L size stock: {p.l_stock}</li>
+                                            <li>XL size stock: {p.xl_stock}</li>
+                                        </ul>
+                                    </li>
+                                ))}    
+                            </ul>
+                    </div>
+                );
+            }
         }
     }
 }
