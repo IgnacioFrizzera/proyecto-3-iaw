@@ -37,34 +37,33 @@ class Stock extends React.Component {
                 <div>Failed to retrieve data. Try again later!</div>
             );
         }
-        else {
-            if(loadingData || stock.length === 0) {
-                return (
-                    <div> Loading store stock...</div>
-                );
-            }
-            else {
-                return (
-                    <div className="StockContainer">
-                        <h1 className="StockTitle">Store stock info</h1>
-                            <ul>
-                                {stock.map(p => (
-                                    <li key={p.product_code}>
-                                        Product code: {p.product_code}
-                                        <ul>
-                                            <li>S size stock: {p.s_stock}</li>
-                                            <li>M size stock: {p.m_stock}</li>
-                                            <li>L size stock: {p.l_stock}</li>
-                                            <li>XL size stock: {p.xl_stock}</li>
-                                        </ul>
-                                    </li>
-                                ))}    
-                            </ul>
-                    </div>
-                );
-            }
+
+        if(loadingData || stock.length === 0) {
+            return (
+                <div> Loading store stock...</div>
+            );
         }
+        
+        return (
+            <div className="StockContainer">
+                <h1 className="StockTitle">Store stock info</h1>
+                <ul>
+                    {stock.map(p => (
+                        <li key={p.product_code}>
+                            Product code: {p.product_code}
+                            <ul>
+                                <li>S size stock: {p.s_stock}</li>
+                                <li>M size stock: {p.m_stock}</li>
+                                <li>L size stock: {p.l_stock}</li>
+                                <li>XL size stock: {p.xl_stock}</li>
+                            </ul>
+                        </li>
+                    ))}    
+                </ul>
+            </div>
+        );
     }
+    
 }
 
 export default Stock;

@@ -34,29 +34,28 @@ class ProductInfo extends React.Component{
 
     render() {
         const { loadingData, productInfo, errorFetching } = this.state;
+        
         if(errorFetching) {
             return(
                 <div>Failed to retrieve product information</div>
             );
         }
-        else{
-            if(loadingData || productInfo.length === 0) {
-                return(
-                    <div>Loading product data...</div>
-                );
-            }
-            else {
-                return(
-                    <div>
-                        <h1>Selected product information</h1>
-                        <li>{productInfo.name}</li>
-                        <li>{productInfo.brand}</li>
-                        <li>{productInfo.description}</li>
-                        <li>{productInfo.price}</li>  
-                    </div>
-                );
-            }
+
+        if(loadingData || productInfo.length === 0) {
+            return(
+                <div>Loading product data...</div>
+            );
         }
+
+        return(
+            <div>
+                <h1>Selected product information</h1>
+                <li>{productInfo.name}</li>
+                <li>{productInfo.brand}</li>
+                <li>{productInfo.description}</li>
+                <li>{productInfo.price}</li>  
+            </div>
+        );
     }
 
 }
