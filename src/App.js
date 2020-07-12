@@ -16,7 +16,8 @@ class App extends React.Component{
             >
               Visit MyGOS
             </a>
-          </header>
+            <h1>Our products information</h1>
+          </header> 
         </div>
       );
   }

@@ -13,19 +13,23 @@ class ProductInfo extends React.Component{
     /**
      * Gets the product information from API
      * After the response is done, renders the data
-     * https://mygenericshop.herokuapp.com/api/product-info/product-code-here
      */
     async componentDidMount() {
         try {
-            //var code = ""; // Product Code should go here
-            const url = "https://mygenericshop.herokuapp.com/api/product-info/NHBW1220"; // testing url
+            const url = "https://mygenericshop.herokuapp.com/api/product-info/" + this.props.code;
             const response = await fetch(url);
+
             if (!response.ok) {
-              throw Error(response.statusText);
+                throw Error(response.statusText);
             }
+
             var data = await response.json();
             data = data[0]; // One element array - each product has an unique code
-            this.setState({ productInfo: data , loadingData: false });
+
+            this.setState({
+                productInfo: data,
+                loadingData: false
+            });
         } catch (error) {
             console.log(error);
             this.setState({ errorFetching: true })
@@ -49,11 +53,11 @@ class ProductInfo extends React.Component{
 
         return(
             <div>
-                <h1>Selected product information</h1>
-                <li>{productInfo.name}</li>
-                <li>{productInfo.brand}</li>
-                <li>{productInfo.description}</li>
-                <li>{productInfo.price}</li>  
+                <h2>Product information</h2>
+                <li>Name: {productInfo.name}</li>
+                <li>Brand: {productInfo.brand}</li>
+                <li>Description: {productInfo.description}</li>
+                <li>Price: ${productInfo.price}</li>  
             </div>
         );
     }
