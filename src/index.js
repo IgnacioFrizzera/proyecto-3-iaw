@@ -16,7 +16,7 @@ ReactDOM.render(
   <React.StrictMode>
     <Stock />
   </React.StrictMode>,
-  document.getElementById('stock')
+  document.getElementById('information')
 );
 
 // If you want your app to work offline and load faster, you can change
