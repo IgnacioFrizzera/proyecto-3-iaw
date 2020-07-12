@@ -2,7 +2,7 @@ import React from 'react';
 import './Stock.css';
 import ReactPaginate from 'react-paginate';
 import ProductInfo from './ProductInfo';
-import {Spinner} from 'react-bootstrap';
+import {Spinner, Container} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 
 class Stock extends React.Component {
@@ -79,20 +79,22 @@ class Stock extends React.Component {
 
         if(errorFetching) {
             return (
-                <div>Failed to retrieve data. Try again later!</div>
+                <Container>Failed to retrieve data. Try again later!</Container>
             );
         }
 
         if(loadingData || stock.length === 0) {
             return(
-                <Spinner animation="border" role="status">
-                    <span className="sr-only">Loading...</span>
-                </Spinner>
+                <Container>
+                    <Spinner animation="border" role="status">
+                        <span className="sr-only">Loading...</span>
+                    </Spinner>
+                </Container>
             );
         }
         
         return (
-            <div>
+            <Container>
                 {this.state.postData}
                 <ReactPaginate
                     previousLabel={"prev"}
@@ -107,7 +109,7 @@ class Stock extends React.Component {
                     subContainerClassName={"pages pagination"}
                     activeClassName={"active"}
                 />
-            </div>
+            </Container>
         );
     }
     
