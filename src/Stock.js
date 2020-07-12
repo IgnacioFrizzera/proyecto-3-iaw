@@ -2,6 +2,8 @@ import React from 'react';
 import './Stock.css';
 import ReactPaginate from 'react-paginate';
 import ProductInfo from './ProductInfo';
+import {Spinner} from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.css';
 
 class Stock extends React.Component {
     constructor(props){
@@ -82,8 +84,10 @@ class Stock extends React.Component {
         }
 
         if(loadingData || stock.length === 0) {
-            return (
-                <div> Loading store stock...</div>
+            return(
+                <Spinner animation="border" role="status">
+                    <span className="sr-only">Loading...</span>
+                </Spinner>
             );
         }
         

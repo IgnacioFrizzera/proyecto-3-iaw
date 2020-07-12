@@ -1,4 +1,6 @@
 import React from 'react';
+import {Spinner} from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.css';
 
 class ProductInfo extends React.Component{
     constructor(props){
@@ -47,7 +49,9 @@ class ProductInfo extends React.Component{
 
         if(loadingData || productInfo.length === 0) {
             return(
-                <div>Loading product data...</div>
+                <Spinner animation="border" role="status">
+                    <span className="sr-only">Loading...</span>
+                </Spinner>
             );
         }
 
