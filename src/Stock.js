@@ -2,7 +2,7 @@ import React from 'react';
 import './styles/Stock.css';
 import ReactPaginate from 'react-paginate';
 import ProductInfo from './ProductInfo';
-import {Spinner, Container} from 'react-bootstrap';
+import {Spinner, Container, Table} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 
 class Stock extends React.Component {
@@ -34,14 +34,14 @@ class Stock extends React.Component {
             const slice = data.slice(this.state.offset, this.state.offset + this.state.perPage)
             const postData = slice.map(pd => 
             <React.Fragment key={pd.product_code}>
-                <h2>Product stock</h2>
-                <li>Product code: {pd.product_code}</li>
-                <li>S size stock: {pd.s_stock}</li>
-                <li>M size stock: {pd.m_stock}</li>
-                <li>L size stock: {pd.l_stock}</li>
-                <li>XL size stock: {pd.xl_stock}</li>
-                <ProductInfo code={pd.product_code}></ProductInfo>
-                <br/>
+                <tr>
+                    <td>{pd.product_code}</td>
+                    <td>{pd.s_stock}</td>
+                    <td>{pd.m_stock}</td>
+                    <td>{pd.l_stock}</td>
+                    <td>{pd.xl_stock}</td>
+                    <ProductInfo code={pd.product_code}></ProductInfo>
+                </tr>
             </React.Fragment>)
 
             this.setState({
@@ -94,7 +94,24 @@ class Stock extends React.Component {
         
         return (
             <Container>
-                {this.state.stock}
+                <Table striped bordered hover variant="dark">
+                    <thead>
+                        <tr>
+                            <th>Product Code</th>
+                            <th>S stock</th>
+                            <th>M stock</th>
+                            <th>L Stock</th>
+                            <th>Xl Stock</th>
+                            <th>Name</th>
+                            <th>Brand</th>
+                            <th>Description</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {this.state.stock}
+                    </tbody>
+                </Table>
                 <ReactPaginate
                     previousLabel={"prev"}
                     nextLabel={"next"}

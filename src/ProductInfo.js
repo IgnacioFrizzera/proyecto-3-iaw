@@ -49,20 +49,38 @@ class ProductInfo extends React.Component{
 
         if(loadingData || productInfo.length === 0) {
             return(
-                <Spinner animation="border" role="status">
-                    <span className="sr-only">Loading...</span>
-                </Spinner>
+                <React.Fragment>
+                    <td>
+                        <Spinner animation="border" role="status">
+                            <span className="sr-only">Loading...</span>
+                        </Spinner>
+                    </td>
+                    <td>
+                        <Spinner animation="border" role="status">
+                            <span className="sr-only">Loading...</span>
+                        </Spinner>    
+                    </td>
+                    <td>
+                        <Spinner animation="border" role="status">
+                            <span className="sr-only">Loading...</span>
+                        </Spinner>
+                    </td>
+                    <td>
+                        <Spinner animation="border" role="status">
+                            <span className="sr-only">Loading...</span>
+                        </Spinner>
+                    </td>
+                </React.Fragment>
             );
         }
 
         return(
-            <div>
-                <h2>Product information</h2>
-                <li>Name: {productInfo.name}</li>
-                <li>Brand: {productInfo.brand}</li>
-                <li>Description: {productInfo.description}</li>
-                <li>Price: ${productInfo.price}</li>  
-            </div>
+            <React.Fragment>
+                <td>{productInfo.name}</td>
+                <td>{productInfo.brand}</td>
+                <td>{productInfo.description}</td>
+                <td>${productInfo.price}</td>
+            </React.Fragment>
         );
     }
 
