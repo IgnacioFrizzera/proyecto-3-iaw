@@ -14,16 +14,16 @@ class Footer extends React.Component{
                         <MDBCol md="12" className="py-2">
                                 <div className="mb-2 flex-center">
                                     <a className="tw-ic" href="https://github.com/IgnacioFrizzera" target="blank">
-                                        <MDBIcon icon="github" size="4x"/>
+                                        <MDBIcon icon="github" size="3x"/>
                                     </a>
                                     <a className="gplus-ic" href="mailto: ignaciofrizzera@gmail.com" target="blank">
                                         <i>
-                                            <MDBIcon icon="envelope" size="4x"/>
+                                            <MDBIcon icon="envelope" size="3x"/>
                                         </i>
                                     </a>
                                     <a className="li-ic" href="https://www.linkedin.com/in/ignacio-frizzera-1a94ab195/" target="blank">
                                         <i>
-                                            <MDBIcon icon="linkedin" size="4x"/>
+                                            <MDBIcon icon="linkedin" size="3x"/>
                                         </i>
                                     </a>
                                 </div>
