@@ -56,6 +56,10 @@ class Stock extends React.Component {
         }
     }
 
+    /**
+     * Handles a page click
+     * Loads data on each click to fill the table 
+     */
     handlePageClick = (e) => {
         const selectedPage = e.selected;
         const offset = selectedPage * this.state.perPage;

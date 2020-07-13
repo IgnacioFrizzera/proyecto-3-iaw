@@ -1,11 +1,12 @@
 import React from 'react';
 import logo from './assets/logo.png';
 import './styles/App.css';
+import {Container} from 'react-bootstrap';
 
 class App extends React.Component{
   render(){
       return (
-        <div>
+        <Container>
           <header className="App-header">
             <img src={logo} alt="logo" />
             <a
@@ -14,10 +15,11 @@ class App extends React.Component{
               target="_blank"
               rel="noopener noreferrer"
             >
-              Visit MyGOS
+              <h2>Visit MyGOS</h2>
             </a>
+            <br/>
           </header> 
-        </div>
+        </Container>
       );
   }
 }
