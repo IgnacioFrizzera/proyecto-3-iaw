@@ -17,7 +17,7 @@
     cursor: pointer;
   }
   .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus{
-    background-color: rgb(153, 112, 112);
+    background-color: rgb(100, 100, 100);
     border-color: black;
     outline: none ;
   }

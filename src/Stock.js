@@ -117,8 +117,8 @@ class Stock extends React.Component {
                     </tbody>
                 </Table>
                 <ReactPaginate
-                    previousLabel={"prev"}
-                    nextLabel={"next"}
+                    previousLabel={"◄"}
+                    nextLabel={"►"}
                     breakLabel={"..."}
                     breakClassName={"break-me"}
                     pageCount={this.state.pageCount}
