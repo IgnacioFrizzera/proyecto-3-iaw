@@ -2,6 +2,7 @@ import React from 'react';
 import logo from './assets/logo.png';
 import './styles/App.css';
 import {Container} from 'react-bootstrap';
+import Stock from './Stock';
 
 class App extends React.Component{
   render(){
@@ -18,7 +19,8 @@ class App extends React.Component{
               <h2>Visit MyGOS</h2>
             </a>
             <br/>
-          </header> 
+          </header>
+          <Stock></Stock>
         </Container>
       );
   }
