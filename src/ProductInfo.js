@@ -1,6 +1,7 @@
 import React from 'react';
-import {Spinner} from 'react-bootstrap';
+import {Spinner, Container} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
+import FailedProductAlert from './FailedProductAlert';
 
 class ProductInfo extends React.Component{
     constructor(props){
@@ -43,7 +44,9 @@ class ProductInfo extends React.Component{
         
         if(errorFetching) {
             return(
-                <div>Failed to retrieve product information</div>
+                <Container>
+                    <FailedProductAlert></FailedProductAlert>
+                </Container>
             );
         }
 

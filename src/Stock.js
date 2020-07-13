@@ -2,6 +2,7 @@ import React from 'react';
 import './styles/Stock.css';
 import ReactPaginate from 'react-paginate';
 import ProductInfo from './ProductInfo';
+import FailedStockAlert from './FailedStockAlert';
 import {Spinner, Container, Table} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 
@@ -82,7 +83,9 @@ class Stock extends React.Component {
 
         if(errorFetching) {
             return (
-                <Container>Failed to retrieve data. Try again later!</Container>
+                <Container>
+                    <FailedStockAlert></FailedStockAlert>
+                </Container>
             );
         }
 
