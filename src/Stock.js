@@ -1,5 +1,5 @@
 import React from 'react';
-import './Stock.css';
+import './styles/Stock.css';
 import ReactPaginate from 'react-paginate';
 import ProductInfo from './ProductInfo';
 import {Spinner, Container} from 'react-bootstrap';
@@ -48,7 +48,6 @@ class Stock extends React.Component {
                 pageCount: Math.ceil(data.length / this.state.perPage),
                 loadingData: false,
                 stock: postData,
-                postData,
             })
             
         } catch (error) {
@@ -95,7 +94,7 @@ class Stock extends React.Component {
         
         return (
             <Container>
-                {this.state.postData}
+                {this.state.stock}
                 <ReactPaginate
                     previousLabel={"prev"}
                     nextLabel={"next"}
