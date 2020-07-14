@@ -20,6 +20,30 @@ class Stock extends React.Component {
     }
 
     /**
+     * If there's no more than 5 items to display
+     * Fullfills the table with -
+     */
+    fullFillTable(postData) {
+        while(postData.length < 5) {
+                postData.push(
+                    <React.Fragment key={postData.length}>
+                        <tr>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                    </React.Fragment>
+                );
+            }
+    }
+
+    /**
      * Retrieves all the stock from the store
      * While loading, renders the products information
      */
@@ -44,6 +68,9 @@ class Stock extends React.Component {
                     <ProductInfo code={pd.product_code}></ProductInfo>
                 </tr>
             </React.Fragment>)
+
+            // In case there's no more data, fullfills the table with -
+            this.fullFillTable(postData);
 
             this.setState({
                 pageCount: Math.ceil(data.length / this.state.perPage),
@@ -100,7 +127,7 @@ class Stock extends React.Component {
         }
         
         return (
-            <Container>
+            <div>
                 <Table striped bordered hover variant="dark">
                     <thead>
                         <tr>
@@ -132,7 +159,7 @@ class Stock extends React.Component {
                     subContainerClassName={"pages pagination"}
                     activeClassName={"active"}
                 />
-            </Container>
+            </div>
         );
     }
     

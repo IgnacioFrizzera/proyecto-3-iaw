@@ -4,10 +4,10 @@ import 'mdbreact/dist/css/mdb.css';
 import 'font-awesome/css/font-awesome.min.css';
 import './styles/Footer.css';
 
-
 class Footer extends React.Component{
     render(){
         return(
+            <div class="fixed-bottom">
             <MDBFooter color="stylish-color-dark" className="font-small darken-3 pt-0">
                 <MDBContainer>
                     <MDBRow>
@@ -31,6 +31,7 @@ class Footer extends React.Component{
                     </MDBRow>
                 </MDBContainer>
             </MDBFooter>
+            </div>
         );
     }
 }
