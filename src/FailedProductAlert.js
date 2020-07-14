@@ -7,7 +7,7 @@ class FailedProductAlert extends React.Component{
         return(
             <Alert variant="danger">
                 <p>
-                <strong>Failed to retrieve product information</strong>
+                    <strong>Failed to retrieve product information</strong>
                 </p>
             </Alert>
         );

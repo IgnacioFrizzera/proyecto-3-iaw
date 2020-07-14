@@ -127,7 +127,7 @@ class Stock extends React.Component {
         }
         
         return (
-            <div>
+            <Container>
                 <Table striped bordered hover variant="dark">
                     <thead>
                         <tr>
@@ -159,7 +159,7 @@ class Stock extends React.Component {
                     subContainerClassName={"pages pagination"}
                     activeClassName={"active"}
                 />
-            </div>
+            </Container>
         );
     }
     
