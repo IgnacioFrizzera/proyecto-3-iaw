@@ -143,7 +143,7 @@ class Stock extends React.Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {this.state.stock}
+                        {stock}
                     </tbody>
                 </Table>
                 <ReactPaginate
